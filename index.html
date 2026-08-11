@@ -16,12 +16,14 @@
 
         /* Main camera styling */
         #cam {
-            width: 80vw;              /* big on desktop */
-            max-width: 900px;         /* large but not too large */
+            width: 80vw;
+            /* big on desktop */
+            max-width: 900px;
+            /* large but not too large */
             margin-top: 30px;
             border-radius: 12px;
             border: 3px solid #444;
-            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
         }
 
         #out {
@@ -33,13 +35,16 @@
         /* Mobile-friendly adjustments */
         @media (max-width: 600px) {
             #cam {
-                width: 95vw;          /* fill the phone screen nicely */
-                max-width: none;      /* remove desktop limit */
+                width: 95vw;
+                /* fill the phone screen nicely */
+                max-width: none;
+                /* remove desktop limit */
                 margin-top: 15px;
             }
 
             #out {
-                font-size: 1.5rem;    /* slightly smaller text on phones */
+                font-size: 1.5rem;
+                /* slightly smaller text on phones */
             }
         }
     </style>
@@ -52,7 +57,7 @@
 
     <script>
 
-        function beep(){
+        function beep() {
             let a = new AudioContext();
             let o = a.createOscillator();
             o.connect(a.destination);
@@ -73,7 +78,7 @@
 
             ctx.drawImage(cam, 0, 0, 50, 50);
 
-            let now = ctx.getImageData(0,0,50,50).data;
+            let now = ctx.getImageData(0, 0, 50, 50).data;
 
             if (prev) {
                 let diff = 0;
@@ -82,26 +87,24 @@
                 }
 
                 let m = (diff / now.length);
-                
+
                 if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
+
+                    // PHONE THRESHOLDS
                     if (m >= 0 && m < 20) {
+                        beep();
+                    } else if (m >= 20) {
                         beep();
                     }
 
-                else if (m >= 20) {
-                    beep();
-                    }
-                }
+                } else {
 
-                else {
-                    
+                    // DESKTOP THRESHOLDS
                     if (m >= 10 && m < 25) {
-                    beep();
-                }
-
-                else if (m >= 25) {
-                    beep();
-                }
+                        beep();
+                    } else if (m >= 25) {
+                        beep();
+                    }
 
                 }
             }
