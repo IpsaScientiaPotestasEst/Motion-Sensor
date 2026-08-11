@@ -90,10 +90,10 @@
 
                 if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
 
-                    // PHONE THRESHOLDS
-                    if (m >= 0 && m < 20) {
+                    // PHONE THRESHOLDS (higher because phones smooth video)
+                    if (m >= 5 && m < 15) {
                         beep();
-                    } else if (m >= 20) {
+                    } else if (m >= 15) {
                         beep();
                     }
 
