@@ -87,9 +87,9 @@
                 if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
 
                     // PHONE THRESHOLDS — phones produce tiny m values
-                    if (m >= 1 && m < 3) {
+                    if (m >= 2 && m < 20) {
                         beep();
-                    } else if (m >= 3) {
+                    } else if (m >= 20) {
                         beep();
                     }
 
