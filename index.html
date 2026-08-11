@@ -14,9 +14,10 @@
             text-align: center;
         }
 
+        /* Main camera styling */
         #cam {
-            width: 90%;
-            max-width: 500px;
+            width: 80vw;              /* big on desktop */
+            max-width: 900px;         /* large but not too large */
             margin-top: 30px;
             border-radius: 12px;
             border: 3px solid #444;
@@ -25,13 +26,21 @@
 
         #out {
             margin-top: 20px;
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: bold;
-            padding: 10px 20px;
-            display: inline-block;
-            border-radius: 8px;
-            background: #222;
-            border: 2px solid #555;
+        }
+
+        /* Mobile-friendly adjustments */
+        @media (max-width: 600px) {
+            #cam {
+                width: 95vw;          /* fill the phone screen nicely */
+                max-width: none;      /* remove desktop limit */
+                margin-top: 15px;
+            }
+
+            #out {
+                font-size: 1.5rem;    /* slightly smaller text on phones */
+            }
         }
     </style>
 </head>
@@ -73,22 +82,14 @@
                 }
 
                 let m = (diff / now.length);
-                let out = document.getElementById("out");
 
-                if (m < 5 && m >= 0) {
-                    out.textContent = "Motion: Minimal";
-                }
-
-                else if (m >= 5 && m < 20) {
-                    out.textContent = "Motion: Medium";
-                }
-
-                else if (m >= 20) {
-                    out.textContent = "Motion: Maximum";
+                if (m >= 5 && m < 20) {
                     beep();
                 }
 
-                else {out.textContent = "Error"}
+                else if (m >= 20) {
+                    beep();
+                }
             }
 
             prev = now;
