@@ -84,7 +84,7 @@
                 let m = (diff / now.length);
                 document.getElementById("out").textContent = m;
 
-                if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
+                if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
 
                     // PHONE THRESHOLDS — phones produce tiny m values
                     if (m >= 1 && m < 3) {
