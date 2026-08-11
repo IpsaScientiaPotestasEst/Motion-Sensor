@@ -90,6 +90,16 @@
                 else if (m >= 25) {
                     beep();
                 }
+
+                if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
+                    if (m >= 0 && m < 20) {
+                        beep();
+                    }
+
+                else if (m >= 20) {
+                    beep();
+                    }
+                }
             }
 
             prev = now;
