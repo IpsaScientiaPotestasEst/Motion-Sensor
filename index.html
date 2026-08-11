@@ -26,9 +26,7 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
         }
 
-        #out {
-            display: none;
-        }
+      
 
         /* Mobile-friendly adjustments */
         @media (max-width: 600px) {
@@ -84,7 +82,7 @@
                 }
 
                 let m = (diff / now.length);
-                document.getElementById("out").textContent = "m = " + m.toFixed(2);
+                document.getElementById("out").textContent = m;
 
                 if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
 
