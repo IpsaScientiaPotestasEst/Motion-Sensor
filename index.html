@@ -82,15 +82,7 @@
                 }
 
                 let m = (diff / now.length);
-
-                if (m >= 10 && m < 25) {
-                    beep();
-                }
-
-                else if (m >= 25) {
-                    beep();
-                }
-
+                
                 if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
                     if (m >= 0 && m < 20) {
                         beep();
@@ -100,7 +92,20 @@
                     beep();
                     }
                 }
+
+                else {
+                    
+                    if (m >= 10 && m < 25) {
+                    beep();
+                }
+
+                else if (m >= 25) {
+                    beep();
+                }
+
+                }
             }
+
 
             prev = now;
 
