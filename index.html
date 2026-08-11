@@ -27,9 +27,7 @@
         }
 
         #out {
-            margin-top: 20px;
-            font-size: 2rem;
-            font-weight: bold;
+            display: none;
         }
 
         /* Mobile-friendly adjustments */
@@ -43,8 +41,7 @@
             }
 
             #out {
-                font-size: 1.5rem;
-                /* slightly smaller text on phones */
+                display: block;
             }
         }
     </style>
@@ -87,6 +84,7 @@
                 }
 
                 let m = (diff / now.length);
+                document.getElementById("out").textContent = "m = " + m.toFixed(2);
 
                 if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
 
