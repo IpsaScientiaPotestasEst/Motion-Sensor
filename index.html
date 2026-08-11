@@ -14,27 +14,22 @@
             text-align: center;
         }
 
-        /* Main camera styling */
+        
         #cam {
             width: 80vw;
-            /* big on desktop */
             max-width: 900px;
-            /* large but not too large */
             margin-top: 30px;
             border-radius: 12px;
             border: 3px solid #444;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
         }
 
-      
 
-        /* Mobile-friendly adjustments */
+
         @media (max-width: 600px) {
             #cam {
                 width: 95vw;
-                /* fill the phone screen nicely */
                 max-width: none;
-                /* remove desktop limit */
                 margin-top: 15px;
             }
 
@@ -86,7 +81,7 @@
 
                 if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
 
-                    // PHONE THRESHOLDS — phones produce tiny m values
+              
                     if (m >= 2 && m < 20) {
                         beep();
                     } else if (m >= 20) {
@@ -95,7 +90,6 @@
 
                 } else {
 
-                    // DESKTOP THRESHOLDS — laptops produce larger m values
                     if (m >= 10 && m < 25) {
                         beep();
                     } else if (m >= 25) {
@@ -106,7 +100,9 @@
             }
 
 
-            prev = now;
+            setTimeout(() => {
+                prev = now;
+            }, 300);
 
             requestAnimationFrame(loop)
         };
